@@ -1,0 +1,31 @@
+{
+  "lists": [
+    {
+      "id": "f38635d8-cb93-493b-956b-2d8dd56715a7",
+      "title": "To do",
+      "cards": []
+    },
+    {
+      "id": "174f81b8-792c-472e-891f-fda59c2bb408",
+      "title": "In Progress",
+      "cards": []
+    },
+    {
+      "id": "be4c4510-407a-4581-9109-0065b5aec5da",
+      "title": "Debugging",
+      "cards": []
+    },
+    {
+      "id": "309b7806-e7da-4d73-a43d-c3bb10b28e82",
+      "title": "Done",
+      "cards": []
+    }
+  ],
+  "archive": {
+    "lists": [],
+    "cards": []
+  },
+  "settings": {
+    "labels": []
+  }
+}
