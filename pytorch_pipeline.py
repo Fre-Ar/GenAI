@@ -8,26 +8,26 @@ from torchvision import datasets, transforms
 #path = kagglehub.dataset_download("hojjatk/mnist-dataset")
 #print(f"Dataset downloaded to: {path}")
 
-device = torch.accelerator.current_accelerator().type if torch.accelerator.is_available() else "cpu"
-print(f"Using {device} device")
 
-class NeuralNetwork(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.flatten = nn.Flatten()
-        self.linear_relu_stack = nn.Sequential(
-            nn.Linear(28*28, 512),
-            nn.ReLU(),
-            nn.Linear(512, 512),
-            nn.ReLU(),
-            nn.Linear(512, 10),
-        )
+# define a simple transform to convert images to tensors
+transform = transforms.Compose([
+    transforms.ToTensor()
+])
 
-    def forward(self, x):
-        '''Do not call model.forward() directly!'''
-        x = self.flatten(x)
-        logits = self.linear_relu_stack(x)
-        return logits
-    
-model = NeuralNetwork().to(device)
-print(model)
+# load the MNIST dataset
+train_dataset = datasets.MNIST(root="./kagglehub/datasets", train=True, download=False, transform=transform)
+
+
+train_loader = torch.utils.data.DataLoader(
+    train_dataset, batch_size=len(train_dataset), shuffle=False
+)
+data_iter = iter(train_loader)
+images, labels = next(data_iter)
+
+# Compute mean and std
+mean = images.mean().item()
+std = images.std().item()
+
+print(f"MNIST mean: {mean:.4f}")
+print(f"MNIST std: {std:.4f}")
+
