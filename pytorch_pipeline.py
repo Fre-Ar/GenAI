@@ -88,7 +88,7 @@ class MNISTModel(nn.Module):
         return x
 
 # Instantiate the model
-model_b = MNISTModel()
+model_b = MNISTModel().to(DEVICE)
 print(model_b)
 
 
@@ -224,3 +224,17 @@ loaded_model = MNISTModel()
 # Load the trained weights
 loaded_model.load_state_dict(torch.load('./mnist_model_best.pth'))
 
+# Print out after running the code:
+'''
+Epoch 1/10 | Train Loss: 0.2468, Train Acc: 0.9263 | Val Loss: 0.1155, Val Acc: 0.9652
+Epoch 2/10 | Train Loss: 0.1014, Train Acc: 0.9686 | Val Loss: 0.0872, Val Acc: 0.9733
+Epoch 3/10 | Train Loss: 0.0708, Train Acc: 0.9777 | Val Loss: 0.0858, Val Acc: 0.9753
+Epoch 4/10 | Train Loss: 0.0565, Train Acc: 0.9818 | Val Loss: 0.0744, Val Acc: 0.9758
+Epoch 5/10 | Train Loss: 0.0433, Train Acc: 0.9859 | Val Loss: 0.0726, Val Acc: 0.9787
+Epoch 6/10 | Train Loss: 0.0205, Train Acc: 0.9939 | Val Loss: 0.0591, Val Acc: 0.9818
+Epoch 7/10 | Train Loss: 0.0134, Train Acc: 0.9962 | Val Loss: 0.0624, Val Acc: 0.9808
+Epoch 8/10 | Train Loss: 0.0147, Train Acc: 0.9955 | Val Loss: 0.0740, Val Acc: 0.9792
+Epoch 9/10 | Train Loss: 0.0133, Train Acc: 0.9958 | Val Loss: 0.0740, Val Acc: 0.9797
+Epoch 10/10 | Train Loss: 0.0119, Train Acc: 0.9966 | Val Loss: 0.0830, Val Acc: 0.9795
+Test Loss: 0.0788, Test Accuracy: 0.9784
+'''
