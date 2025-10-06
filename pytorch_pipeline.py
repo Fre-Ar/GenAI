@@ -193,7 +193,7 @@ def test_model(model, test_loader, criterion, device=DEVICE):
     running_loss = 0.0
     correct = 0
     total = 0
-    with torch.no_grad():
+    with torch.no_grad(): 
         for inputs, targets in test_loader:
             inputs, targets = inputs.to(device), targets.to(device)
             outputs = model(inputs)
